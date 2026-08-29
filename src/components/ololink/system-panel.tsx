@@ -34,7 +34,7 @@ const TAB_KIND: Partial<Record<RailId, AssetKind>> = {
   ground: 'ground',
 };
 
-function Stat({ label, value, tone }: { label: string; value: string; tone?: string }) {
+function Stat({ label, value, tone }: { label: string; value: string; tone?: string | undefined }) {
   return (
     <div className="rounded-[8px] border border-white/[0.06] bg-white/[0.02] px-2.5 py-2">
       <div className="font-mono text-[8px] uppercase tracking-[0.22em] text-muted-foreground/50">
