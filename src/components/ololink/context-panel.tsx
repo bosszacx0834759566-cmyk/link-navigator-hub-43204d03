@@ -720,7 +720,7 @@ function AnalyticsPanel({ state }: { state: OloLinkState }) {
 /* ---------------------------------------------------------------- shell */
 
 
-const PANELS: Partial<Record<RailId, (p: { state: OloLinkState }) => React.ReactElement> = {
+const PANELS: Partial<Record<RailId, (p: { state: OloLinkState }) => React.ReactElement>> = {
   overview: OverviewPanel,
   assets: AssetsPanel,
   network: NetworkPanel,
@@ -729,7 +729,7 @@ const PANELS: Partial<Record<RailId, (p: { state: OloLinkState }) => React.React
   alerts: AlertsPanel,
   settings: SettingsPanel,
   context: DecisionPanel,
-}>;
+};
 
 export function ContextPanel({ state }: { state: OloLinkState }) {
   const id = state.panel;
