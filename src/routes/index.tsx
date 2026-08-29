@@ -3,8 +3,9 @@ import { lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { useOloLink } from '@/hooks/use-ololink';
-import { TopNav } from '@/components/ololink/top-nav';
-import { ContextPanel } from '@/components/ololink/context-panel';
+import { SystemHeader } from '@/components/ololink/system-header';
+import { SystemRail } from '@/components/ololink/system-rail';
+import { SystemPanel } from '@/components/ololink/system-panel';
 import { ObjectCard } from '@/components/ololink/object-card';
 import { Dock } from '@/components/ololink/dock';
 
@@ -84,18 +85,12 @@ function Explorer() {
       </div>
 
 
-      {/* LEVEL 2 — top navigation */}
-      <TopNav
-        active={state.panel}
-        onToggle={state.togglePanel}
-        alertCount={state.profile.alerts.length}
-        view={state.view}
-        onViewChange={state.setView}
-      />
+      {/* LEVEL 2 — brand strip + system tab rail */}
+      <SystemHeader state={state} />
+      <SystemRail active={state.panel} onToggle={state.togglePanel} />
 
-
-      {/* LEVEL 3 — contextual side panel */}
-      <ContextPanel state={state} />
+      {/* LEVEL 3 — slide-out data panel for the active tab */}
+      <SystemPanel state={state} />
 
       {/* LEVEL 4 — object-specific information */}
       <ObjectCard state={state} />

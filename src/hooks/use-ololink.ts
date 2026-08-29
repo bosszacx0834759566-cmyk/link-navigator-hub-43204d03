@@ -21,7 +21,13 @@ export type RailId =
   | 'analytics'
   | 'alerts'
   | 'settings'
-  | 'context';
+  | 'context'
+  | 'leo'
+  | 'haps'
+  | 'drone'
+  | 'ground'
+  | 'search'
+  | 'view';
 
 export type ViewMode = '3d' | '2d';
 
@@ -251,10 +257,7 @@ export function useOloLink(): OloLinkState {
     select: (s) => {
       setSelection(s);
       if (s) {
-        setPanel((p) => (p === null || p === 'context' ? 'context' : p));
         push('INFO', `Inspector focus: ${s.type === 'asset' ? s.id : `link ${s.id}`}`);
-      } else {
-        setPanel((p) => (p === 'context' ? null : p));
       }
     },
     view,
